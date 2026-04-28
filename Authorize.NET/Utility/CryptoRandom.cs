@@ -11,8 +11,6 @@ namespace AuthorizeNet
     /// </summary>
     public class CryptoRandom
     {
-        private RNGCryptoServiceProvider _rng =
-        new RNGCryptoServiceProvider();
         private byte[] _uint32Buffer = new byte[4];
 
         public CryptoRandom() { }
@@ -20,7 +18,7 @@ namespace AuthorizeNet
 
         public Int32 Next()
         {
-            _rng.GetBytes(_uint32Buffer);
+            RandomNumberGenerator.Fill(_uint32Buffer);
             return BitConverter.ToInt32(_uint32Buffer, 0) & 0x7FFFFFFF;
         }
 
@@ -39,7 +37,7 @@ namespace AuthorizeNet
             Int64 diff = maxValue - minValue;
             while (true)
             {
-                _rng.GetBytes(_uint32Buffer);
+                RandomNumberGenerator.Fill(_uint32Buffer);
                 UInt32 rand = BitConverter.ToUInt32(_uint32Buffer, 0);
 
                 Int64 max = (1 + (Int64)UInt32.MaxValue);
@@ -53,7 +51,7 @@ namespace AuthorizeNet
 
         public double NextDouble()
         {
-            _rng.GetBytes(_uint32Buffer);
+            RandomNumberGenerator.Fill(_uint32Buffer);
             UInt32 rand = BitConverter.ToUInt32(_uint32Buffer, 0);
             return rand / (1.0 + UInt32.MaxValue);
         }
@@ -61,7 +59,7 @@ namespace AuthorizeNet
         public void NextBytes(byte[] buffer)
         {
             if (buffer == null) throw new ArgumentNullException("buffer");
-            _rng.GetBytes(buffer);
+            RandomNumberGenerator.Fill(buffer);
         }
     }
 }
