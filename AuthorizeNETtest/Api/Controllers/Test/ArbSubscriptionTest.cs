@@ -14,13 +14,13 @@ namespace AuthorizeNet.Api.Controllers.Test
     [TestFixture]
     public class ArbSubscriptionTest : ApiCoreTestBase {
 
-	    [TestFixtureSetUp]
+	    [OneTimeSetUp]
         public new static void SetUpBeforeClass()
         {
 		    ApiCoreTestBase.SetUpBeforeClass();
 	    }
 
-	    [TestFixtureTearDown]
+	    [OneTimeTearDown]
         public new static void TearDownAfterClass()
         {
 		    ApiCoreTestBase.TearDownAfterClass();
@@ -211,7 +211,6 @@ namespace AuthorizeNet.Api.Controllers.Test
         /// @Zalak
         /// </summary>
        // [Test]
-        [ExpectedException(typeof(ArgumentException), ExpectedMessage = "SearchType cannot be null")]
         public void GetSubscriptionSearchCardExpiringThisMonthIssueTest()
         {
            var getSubscriptionList = new ARBGetSubscriptionListRequest()

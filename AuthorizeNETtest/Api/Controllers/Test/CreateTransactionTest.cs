@@ -13,13 +13,13 @@ namespace AuthorizeNet.Api.Controllers.Test
     public class CreateTransactionTest : ApiCoreTestBase
     {
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public new static void SetUpBeforeClass()
         {
             ApiCoreTestBase.SetUpBeforeClass();
         }
 
-        [TestFixtureTearDown]
+        [OneTimeTearDown]
         public new static void TearDownAfterClass()
         {
             ApiCoreTestBase.TearDownAfterClass();

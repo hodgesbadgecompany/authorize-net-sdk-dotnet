@@ -13,13 +13,13 @@
     public class CreateCustomerProfileFromTransactionSampleTest : ApiCoreTestBase
     {
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public new static void SetUpBeforeClass()
         {
             ApiCoreTestBase.SetUpBeforeClass();
         }
 
-        [TestFixtureTearDown]
+        [OneTimeTearDown]
         public new static void TearDownAfterClass()
         {
             ApiCoreTestBase.TearDownAfterClass();

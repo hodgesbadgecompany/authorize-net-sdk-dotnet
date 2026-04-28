@@ -93,7 +93,7 @@ namespace AuthorizeNet.Api.Controllers.Test
 	        ErrorMessages = new Dictionary<string, string>();
 	    }
 
-	    [TestFixtureSetUp]
+	    [OneTimeSetUp]
         public static void SetUpBeforeClass()//TestContext context)
         {
             ErrorMessages.Clear();
@@ -108,7 +108,7 @@ namespace AuthorizeNet.Api.Controllers.Test
 		    ErrorMessages.Add("E00095", "ShippingProfileId is not provided within Customer Profile.");
         }
 
-	    [TestFixtureTearDown]
+	    [OneTimeTearDown]
         public static void TearDownAfterClass()
         {
 	    }
