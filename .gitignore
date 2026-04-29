@@ -184,3 +184,9 @@ FakesAssemblies/
 /NUnit.ConsoleRunner.3.13.0
 /.vs
 /nuget.exe
+
+# Local credentials — never commit
+.env
+.env.local
+*.env
+!.env.example
